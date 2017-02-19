@@ -1,0 +1,38 @@
+<!-- Map -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="map">
+        <sebm-google-map 
+          [latitude]="lat" 
+          [longitude]="lng"
+          [zoom]="3"
+          (mapClick)="mapClicked($event)">
+          <sebm-google-map-marker 
+            *ngFor="let marker of markers"
+            [latitude]="marker.location.lat" 
+            [longitude]="marker.location.lng"
+            [title]="marker.title + '\n' + marker.description"
+            [label]="marker.id"
+            (markerClick)="getDetailInfo(marker.id); updateDiv(infowindow)">
+            <sebm-google-map-info-window
+              [disableAutoPan]="true"
+              #infowindow>
+              <div class="detail_Info">
+                <h3>{{place?.headerTitle}}</h3>
+                <h4>{{place?.title}}</h4>
+                <img src="{{place?.imageUrl}}" alt="image">
+                <p>{{place?.description}}</p>
+                <a href={{place?.buttons[0].actionData}}>
+                  <font color="{{place?.buttons[0].color}}">
+                    {{place?.buttons[0].text}}
+                  </font>
+                </a>
+              </div>
+            </sebm-google-map-info-window>
+          </sebm-google-map-marker> 
+        </sebm-google-map>
+      </div>
+    </div>
+  </div>
+</div>

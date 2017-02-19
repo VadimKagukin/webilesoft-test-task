@@ -1,0 +1,22 @@
+.sebm-google-map-container {
+  height: 500px;
+}
+
+h3, h4 {
+  text-align: center;
+}
+
+img {
+  height: 40%;
+  width: 40%;
+  margin: 5px 10px;
+  float: left;
+}
+
+p, a {
+  font: 10pt Verdana,Arial,sans-serif;
+}
+
+a {
+  float: right;
+}
